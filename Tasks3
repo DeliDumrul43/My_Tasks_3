@@ -1,0 +1,46 @@
+import time
+print("Öncelikle merhaba ben geleceğin king of artificial intelligence")
+
+x1 = int(input("Lütfen birinci dairenin x kordinatını girin : "))
+y1 = int(input("Lütfen birinci dairenin y kordinatını girin : "))
+r1 = int(input("Lütfen birini dairenin yarı çapını giriniz : "))
+
+x2 = int(input("Lütfen ikinci dairenin x kordinatını girin : "))
+y2 = int(input("Lütfen ikinci dairenin y kordinatını girin : "))
+r2 = int(input("Lütfen ikinci dairenin yarıçapını giriniz : "))
+
+radius_total = r1 + r2
+
+distance = ((x2-x1)**2 + (y2-y1)**2)**0.5
+
+if distance < radius_total:
+    print("These two circles intersect in two points...")
+    x = (x2 + x1)/2 + (x2-x1)*(r1**2 - r2**2)/(2*distance**2)
+    + (y2 - y1)/(2*distance**2)*((r1 + r2)**2 - distance**2)*(distance**2-(r2-r1)**2)
+    xq = (x2 + x1)/2 + (x2-x1)*(r1**2 - r2**2)/(2*distance**2)
+    - (y2 - y1)/(2*distance**2)*((r1 + r2)**2 - distance**2)*(distance**2-(r2-r1)**2)
+    y = (y2 + y1)/2 + (y2 - y1)*(r1**2 - r2**2)/(2*distance**2)
+    + (x2 - x1)/(2*distance**2)*((r1 + r2)**2 - distance**2)*(distance**2-(r2-r1)**2)
+    yq = (y2 + y1)/2 + (y2 - y1)*(r1**2 - r2**2)/(2*distance)**2
+    - (x2 - x1)/(2*distance**2)*((r1 + r2)**2 - distance**2)*(distance**2-(r2-r1)**2)
+
+    print("Results : ",x,xq)
+    print("Results : ",y,yq)
+    print("Distance between centers : ",distance)
+
+elif distance == radius_total:
+    print("These two circles intersect in one point")
+    x = (x2 + x1)/2 + (x2-x1)*(r1**2 - r2**2)/(2*distance**2)
+    + (y2 - y1)/(2*distance**2)*((r1 + r2)**2 - distance**2)*(distance**2-(r2-r1)**2)
+    xq = (x2 + x1)/2 + (x2-x1)*(r1**2 - r2**2)/(2*distance**2)
+    y = (y2 + y1)/2 + (y2 - y1)*(r1**2 - r2**2)/(2*distance**2)
+    + (x2 - x1)/(2*distance**2)*((r1 + r2)**2 - distance**2)*(distance**2-(r2-r1)**2)
+    yq = (y2 + y1)/2 + (y2 - y1)*(r1**2 - r2**2)/(2*distance**2)
+    print("Results : ",x)
+    print("Results : ",y)
+    print(distance)
+
+elif distance > radius_total:
+    print("There is no intersection point.Distance between centers : ",distance)
+    pass
+
